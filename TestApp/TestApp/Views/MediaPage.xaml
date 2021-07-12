@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TestApp.Views.MediaPage"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Button Text="Take a Photo" Command="{Binding TakePhotoCommand}" />
+            <Button Text="Pick a Photo" Command="{Binding PickPhotoCommand}" />
+            <Button Text="Take a Video" Command="{Binding TakeVideoCommand}" />
+            <Button Text="Pick a Video" Command="{Binding PickVideoCommand}" />
+            <Image Source="{Binding ImageShow}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
