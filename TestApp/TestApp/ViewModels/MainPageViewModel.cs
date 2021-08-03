@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Navigation;
+using System;
 
 namespace TestApp.ViewModels
 {
@@ -11,6 +12,7 @@ namespace TestApp.ViewModels
         public DelegateCommand ListViewPageCommand { get; }
         public DelegateCommand ContactPageCommand { get; }
         public DelegateCommand LocalizationPageCommand { get; }
+        public DelegateCommand NotifPageCommand { get; }
 
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
@@ -22,6 +24,12 @@ namespace TestApp.ViewModels
             ListViewPageCommand = new DelegateCommand(NavigateToListViewPage);
             ContactPageCommand = new DelegateCommand(NavigateToContact);
             LocalizationPageCommand = new DelegateCommand(NavigateToLocalizationPage);
+            NotifPageCommand = new DelegateCommand(NavigateToNotifPage);
+        }
+
+        private void NavigateToNotifPage()
+        {
+            NavigationService.NavigateAsync("NotificationPage");
         }
 
         private void NavigateToLocalizationPage()

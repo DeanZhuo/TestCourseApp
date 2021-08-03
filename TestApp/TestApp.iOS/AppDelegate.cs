@@ -2,6 +2,7 @@
 using Prism;
 using Prism.Ioc;
 using UIKit;
+using UserNotifications;
 
 namespace TestApp.iOS
 {
@@ -21,6 +22,7 @@ namespace TestApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            UNUserNotificationCenter.Current.Delegate = new iOSNotificationReceiver();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             string fileName = "contact_db.db3";

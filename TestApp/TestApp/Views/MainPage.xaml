@@ -13,5 +13,6 @@
         <Button Text="ListView" Command="{Binding ListViewPageCommand}" />
         <Button Text="Contact" Command="{Binding ContactPageCommand}" />
         <Button Text="Localization" Command="{Binding LocalizationPageCommand}" />
+        <Button Text="Notification" Command="{Binding NotifPageCommand}" />
     </StackLayout>
 </ContentPage>

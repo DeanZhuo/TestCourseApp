@@ -88,6 +88,8 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlarmHandler.cs" />
+    <Compile Include="AndroidNotificationManager.cs" />
     <Compile Include="AndroidPickerDoneButtonEffect.cs" />
     <Compile Include="LocaleUtil.cs" />
     <Compile Include="MainApplication.cs" />

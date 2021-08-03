@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TestApp.Views.NotificationPage"
+             Title="{Binding Title}">
+    <StackLayout Margin="20">
+        <Label Text="Click the button below to create a local notification." />
+        <Button Text="Create Notification" Command="{Binding SendCommand}" />
+        <Label Text="Click the button below to schedule a local notification for in 10 seconds time." />
+        <Button Text="Create Notification" Command="{Binding ScheduledCommand}" />
+        <Label Text="{Binding PageMessage}" />
+    </StackLayout>
+</ContentPage>

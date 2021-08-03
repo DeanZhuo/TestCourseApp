@@ -38,6 +38,7 @@ namespace TestApp
             containerRegistry.RegisterForNavigation<ContactPage, ContactPageViewModel>();
             containerRegistry.RegisterForNavigation<NewContactPage, NewContactPageViewModel>();
             containerRegistry.RegisterForNavigation<LocalizationPage, LocalizationPageViewModel>();
+            containerRegistry.RegisterForNavigation<NotificationPage, NotificationPageViewModel>();
         }
     }
 }
