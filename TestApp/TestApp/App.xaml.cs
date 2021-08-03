@@ -11,6 +11,7 @@ namespace TestApp
     public partial class App
     {
         public static string FilePath;
+
         public App(IPlatformInitializer initializer, string filePath)
             : base(initializer)
         {
@@ -36,6 +37,7 @@ namespace TestApp
             containerRegistry.RegisterForNavigation<ListViewPage, ListViewPageViewModel>();
             containerRegistry.RegisterForNavigation<ContactPage, ContactPageViewModel>();
             containerRegistry.RegisterForNavigation<NewContactPage, NewContactPageViewModel>();
+            containerRegistry.RegisterForNavigation<LocalizationPage, LocalizationPageViewModel>();
         }
     }
 }

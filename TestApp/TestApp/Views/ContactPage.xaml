@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="TestApp.Views.ContactPage"
              Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add New" Command="{Binding NewContactCommand}"/>
+        <ToolbarItem Text="Add New" Command="{Binding NewContactCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView ItemsSource="{Binding ContactList}" SeparatorColor="Black">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" TextColor="Black" Detail="{Binding Email}" DetailColor="DarkBlue"/>
+                    <TextCell Text="{Binding Name}" TextColor="Black" Detail="{Binding Email}" DetailColor="DarkBlue" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

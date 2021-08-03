@@ -10,10 +10,13 @@ namespace TestApp.Models
 
         [Column("Name")] // same principle with the table
         public string Name { get; set; }
+
         public string Lastname { get; set; }
         public string Email { get; set; }
+
         [MaxLength(10)] // constraint
         public string PhoneNumber { get; set; }
+
         public string Address { get; set; }
     }
 }

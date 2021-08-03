@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Plugin.CurrentActivity;
 using Prism;
 using Prism.Ioc;
 
@@ -21,6 +22,7 @@ namespace TestApp.Droid
             Xamarin.Essentials.Platform.Init(Application);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             Acr.UserDialogs.UserDialogs.Init(this);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             string fileName = "contact_db.db3";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);

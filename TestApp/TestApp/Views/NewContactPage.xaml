@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="TestApp.Views.NewContactPage"
              Title="{Binding Title}">
     <StackLayout Margin="20" Padding="5">
-        <Entry Placeholder="Name" Text="{Binding Name}"/>
-        <Entry Placeholder="LastName" Text="{Binding LastName}"/>
-        <Entry Placeholder="Email" Text="{Binding Email}"/>
-        <Entry Placeholder="Phone Number" Text="{Binding PhoneNumber}"/>
-        <Entry Placeholder="Address" Text="{Binding Address}"/>
-        <Button Text="Save" Command="{Binding SaveCommand}"/>
+        <Entry Placeholder="Name" Text="{Binding Name}" />
+        <Entry Placeholder="LastName" Text="{Binding LastName}" />
+        <Entry Placeholder="Email" Text="{Binding Email}" />
+        <Entry Placeholder="Phone Number" Text="{Binding PhoneNumber}" />
+        <Entry Placeholder="Address" Text="{Binding Address}" />
+        <Button Text="Save" Command="{Binding SaveCommand}" />
     </StackLayout>
-  
 </ContentPage>

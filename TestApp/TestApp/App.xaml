@@ -2,9 +2,26 @@
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
                         xmlns:prism="http://prismlibrary.com"
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:helper="clr-namespace:TestApp.HelperLanguage"
                         x:Class="TestApp.App">
     <Application.Resources>
-
         <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Style TargetType="Picker" ApplyToDerivedTypes="True">
+                <Style.Setters>
+                    <Setter Property="helper:PickerDoneButtonEffect.DoneButtonText" Value="{helper:Translate Done}" />
+                </Style.Setters>
+            </Style>
+            <Style TargetType="DatePicker" ApplyToDerivedTypes="True">
+                <Style.Setters>
+                    <Setter Property="helper:PickerDoneButtonEffect.DoneButtonText" Value="{helper:Translate Done}" />
+                </Style.Setters>
+            </Style>
+            <Style TargetType="TimePicker" ApplyToDerivedTypes="True">
+                <Style.Setters>
+                    <Setter Property="helper:PickerDoneButtonEffect.DoneButtonText" Value="{helper:Translate Done}" />
+                </Style.Setters>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

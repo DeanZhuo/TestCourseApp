@@ -2,9 +2,9 @@
 
 namespace TestApp.Views
 {
-    public partial class ContactPage : ContentPage
+    public partial class LocalizationPage : ContentPage
     {
-        public ContactPage()
+        public LocalizationPage()
         {
             InitializeComponent();
         }

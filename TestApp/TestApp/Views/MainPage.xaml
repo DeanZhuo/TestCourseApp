@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helper="clr-namespace:TestApp.HelperLanguage"
              x:Class="TestApp.Views.MainPage"
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20" Padding="5">
-        <Label Text="Welcome to Dean TestApp! This app uses Xamarin Forms and Prism!" />
+        <Label Text="{helper:Translate Welcome}" />
         <Button Text="Keypad" Command="{Binding KeypadPageCommand}" />
         <Button Text="Scanner" Command="{Binding ScannerPageCommand}" />
         <Button Text="Media Picker" Command="{Binding MediaPageCommand}" />
         <Button Text="ListView" Command="{Binding ListViewPageCommand}" />
         <Button Text="Contact" Command="{Binding ContactPageCommand}" />
+        <Button Text="Localization" Command="{Binding LocalizationPageCommand}" />
     </StackLayout>
 </ContentPage>

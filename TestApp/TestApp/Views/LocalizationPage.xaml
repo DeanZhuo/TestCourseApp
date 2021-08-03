@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helper="clr-namespace:TestApp.HelperLanguage"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TestApp.Views.LocalizationPage"
+             Title="{Binding Title}">
+    <StackLayout Margin="20">
+        <Label Text="{helper:Translate LangPageText}" />
+        <helper:LocalizedDatePicker PositiveActionText="{helper:Translate Update}"
+                                    NegativeActionText="{helper:Translate Cancel}" />
+        <helper:LocalizedTimePicker PositiveActionText="{helper:Translate Update}"
+                                    NegativeActionText="{helper:Translate Cancel}" />
+        <Picker Title="{helper:Translate SelectLang}"
+                SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}"
+                ItemsSource="{Binding Languages}"
+                ItemDisplayBinding="{Binding Name}" />
+        <Button Text="{helper:Translate ChangeLang}"
+                Command="{Binding ChangeLanguageCommand}" />
+    </StackLayout>
+</ContentPage>

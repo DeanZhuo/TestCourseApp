@@ -10,6 +10,7 @@ namespace TestApp.ViewModels
     {
         public DelegateCommand NewContactCommand { get; }
         public ObservableCollection<Contact> ContactList { get; } = new ObservableCollection<Contact>();
+
         public ContactPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = "Contacts";
