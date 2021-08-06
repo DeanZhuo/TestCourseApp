@@ -33,6 +33,10 @@ namespace TestApp.ViewModels
 
         private async void ChangeLanguage()
         {
+            if (SelectedLanguage == null)
+            {
+                return;
+            }
             LocalizationResourceManager.Instance.SetCulture(CultureInfo.GetCultureInfo(SelectedLanguage.CI));
             await App.Current.MainPage.DisplayAlert("", ReString.LangChanged, ReString.Done);
         }
