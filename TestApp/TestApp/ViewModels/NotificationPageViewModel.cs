@@ -15,6 +15,7 @@ namespace TestApp.ViewModels
         public DelegateCommand ScheduledCommand { get; }
 
         private DateTime selectedDate;
+
         public DateTime SelectedDate
         {
             get { return selectedDate; }
@@ -22,6 +23,7 @@ namespace TestApp.ViewModels
         }
 
         private TimeSpan selectedTime = new TimeSpan();
+
         public TimeSpan SelectedTime
         {
             get { return selectedTime; }

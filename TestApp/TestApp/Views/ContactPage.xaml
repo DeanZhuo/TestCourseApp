@@ -9,7 +9,7 @@
         <ToolbarItem Text="Add New" Command="{Binding NewContactCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding ContactList}" SeparatorColor="Black">
+        <ListView ItemsSource="{Binding ContactList}" SeparatorColor="Black" ItemSelected="ListView_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}" TextColor="Black" Detail="{Binding Email}" DetailColor="DarkBlue" />

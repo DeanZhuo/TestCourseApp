@@ -19,7 +19,21 @@ namespace TestApp.ViewModels
 
         private void NavigateToNewContact()
         {
-            NavigationService.NavigateAsync("NewContactPage");
+            var NavParams = new NavigationParameters
+            {
+                { "command", "new" }
+            };
+            NavigationService.NavigateAsync("NewContactPage", NavParams);
+        }
+
+        public void NavigateToDetail(Contact item)
+        {
+            var NavParams = new NavigationParameters
+            {
+                { "item", item },
+                { "command", "detail" }
+            };
+            NavigationService.NavigateAsync("NewContactPage", NavParams);
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)

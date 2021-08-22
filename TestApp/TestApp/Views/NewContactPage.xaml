@@ -6,11 +6,19 @@
              x:Class="TestApp.Views.NewContactPage"
              Title="{Binding Title}">
     <StackLayout Margin="20" Padding="5">
-        <Entry Placeholder="Name" Text="{Binding Name}" />
-        <Entry Placeholder="LastName" Text="{Binding LastName}" />
-        <Entry Placeholder="Email" Text="{Binding Email}" />
-        <Entry Placeholder="Phone Number" Text="{Binding PhoneNumber}" />
-        <Entry Placeholder="Address" Text="{Binding Address}" />
-        <Button Text="Save" Command="{Binding SaveCommand}" />
+        <Entry Placeholder="Name" Text="{Binding Name}" IsReadOnly="{Binding ReadStat}" ReturnType="Next" />
+        <Entry Placeholder="Last Name" Text="{Binding LastName}" IsReadOnly="{Binding ReadStat}" ReturnType="Next" />
+        <Entry Placeholder="Email" Text="{Binding Email}" IsReadOnly="{Binding ReadStat}" ReturnType="Next" />
+        <Entry Placeholder="Phone Number" Text="{Binding PhoneNumber}" IsReadOnly="{Binding ReadStat}" ReturnType="Next" />
+        <Entry Placeholder="Address" Text="{Binding Address}" IsReadOnly="{Binding ReadStat}" ReturnType="Go" ReturnCommand="{Binding SaveCommand}" />
+        <Frame IsVisible="{Binding ViewStat}" Padding="0">
+            <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
+        </Frame>
+        <Frame IsVisible="{Binding ReadStat}" Padding="0">
+            <StackLayout Orientation="Horizontal" Padding="5">
+                <Button Text="Edit" Command="{Binding EditCommand}" HorizontalOptions="FillAndExpand" />
+                <Button Text="Delete" Command="{Binding DeleteCommand}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </Frame>
     </StackLayout>
 </ContentPage>

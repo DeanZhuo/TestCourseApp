@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:prism="http://prismlibrary.com"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:helper="clr-namespace:TestApp.HelperLanguage" xmlns:viewmodels="clr-namespace:TestApp.ViewModels" x:DataType="viewmodels:NotificationPageViewModel"
+             xmlns:helper="clr-namespace:TestApp.HelperLanguage"
+             xmlns:viewmodels="clr-namespace:TestApp.ViewModels"
+             x:DataType="viewmodels:NotificationPageViewModel"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="TestApp.Views.NotificationPage"
              Title="{Binding Title}">
@@ -13,12 +15,12 @@
         <Button Text="Send 10s Notification" Command="{Binding TenSecCommand}" />
         <Label Text="Below is the option to send a notification on specific time and date." />
         <helper:LocalizedDatePicker PositiveActionText="{helper:Translate Update}"
-                                    NegativeActionText="{helper:Translate Cancel}" 
+                                    NegativeActionText="{helper:Translate Cancel}"
                                     Date="{Binding SelectedDate}" />
         <helper:LocalizedTimePicker PositiveActionText="{helper:Translate Update}"
-                                    NegativeActionText="{helper:Translate Cancel}" 
-                                     Time="{Binding SelectedTime}"/>
-        <Button Text="Send timed notification" Command="{Binding ScheduledCommand}"/>
+                                    NegativeActionText="{helper:Translate Cancel}"
+                                     Time="{Binding SelectedTime}" />
+        <Button Text="Send timed notification" Command="{Binding ScheduledCommand}" />
         <Label Text="{Binding PageMessage}" />
     </StackLayout>
 </ContentPage>
