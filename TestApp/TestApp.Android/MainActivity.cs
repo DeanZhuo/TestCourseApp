@@ -5,7 +5,6 @@ using Android.OS;
 using Plugin.CurrentActivity;
 using Prism;
 using Prism.Ioc;
-using System;
 using TestApp.HelperNotification;
 using Xamarin.Forms;
 
@@ -28,6 +27,7 @@ namespace TestApp.Droid
             Acr.UserDialogs.UserDialogs.Init(this);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
+            // adding local database file for the contact page
             string fileName = "contact_db.db3";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string completePath = System.IO.Path.Combine(folderPath, fileName);
@@ -42,22 +42,12 @@ namespace TestApp.Droid
 
         private void CreateFromIntent(Intent intent)
         {
-            switch (intent.Action)
-            {
-                case "LEFT":
-                    Console.WriteLine("hit left");
-                    break;
-                case "RIGHT":
-                    Console.WriteLine("hit right");
-                    break;
-                default:
-                    Console.WriteLine("didn't hit any");
-                    break;
-            }
-
+            /* Function will be called when notification is pressed.
+             * The body, not the action button. Will direct to the notification
+             * page with some message.
+             */
             if (intent?.Extras != null)
             {
-                // string action = intent.Action;
                 string title = intent.GetStringExtra(AndroidNotificationManager.TitleKey);
                 string message = intent.GetStringExtra(AndroidNotificationManager.MessageKey);
                 (Xamarin.Forms.Application.Current as App).NavigationService.NavigateAsync("app:///NavigationPage/MainPage/NotificationPage");

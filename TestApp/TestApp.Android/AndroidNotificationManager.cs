@@ -60,6 +60,10 @@ namespace TestApp.Droid
 
         public void ReceiveNotification(string title, string message)
         {
+            /*
+             * Called on notification pressed. Will then invoke the event at
+             * the notification page.
+             */
             var args = new NotificationEventArgs()
             {
                 Title = title,
@@ -94,10 +98,17 @@ namespace TestApp.Droid
 
         public void Show(string title, string message)
         {
+            /*
+             * Create the notification to be show. Got 2 intent for 2 action
+             * button. In this case, both button did the same thing with the
+             * same message. The action in this function only had text as
+             * the action indicator. The real action that would be executed
+             * at the action button clicked is NOT written here.
+             */
             var context = AndroidApp.Context;
+
             // notification intent
             Intent contentIntent = new Intent(context, typeof(MainActivity));
-            // Intent contentIntent = context.PackageManager.GetLaunchIntentForPackage(context.PackageName);
             contentIntent.PutExtra(TitleKey, title);
             contentIntent.PutExtra(MessageKey, message);
             PendingIntent pendingIntent = PendingIntent.GetActivity(context, pendingIntentId++, contentIntent, PendingIntentFlags.CancelCurrent);

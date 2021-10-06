@@ -43,7 +43,7 @@ namespace TestApp.ViewModels
         public string ActionMessage
         {
             get { return actionMessage; }
-            set { SetProperty(ref actionMessage, value); } 
+            set { SetProperty(ref actionMessage, value); }
         }
 
         public NotificationPageViewModel(INavigationService navigationService) : base(navigationService)

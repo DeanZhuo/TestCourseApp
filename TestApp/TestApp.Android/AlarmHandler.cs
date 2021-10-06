@@ -8,6 +8,12 @@ namespace TestApp.Droid
     [IntentFilter(new string[] { "android.intent.action.BOOT_COMPLETED" }, Priority = (int)IntentFilterPriority.LowPriority)]
     public class AlarmHandler : BroadcastReceiver
     {
+        /*
+         * This part called when user choose timed notification, the 10s
+         * and the custom time button.
+         * The function will be called when its time for the notification to show up.
+        */
+
         public override void OnReceive(Context context, Intent intent)
         {
             if (intent?.Extras != null)
@@ -24,11 +30,23 @@ namespace TestApp.Droid
     [IntentFilter(new string[] { "LEFT", "RIGHT" })]
     public class CustomActionReceiver : BroadcastReceiver
     {
+        /*
+         * This part is where the action filter work. When action button is
+         * pressed, it wont trigger the method OnNewIntent in the MainActivity
+         * but directly here.
+         * In this case, pressing action button will make a toast,
+         * then directed to Navigation page, with action text added in message.
+        */
+
         public override void OnReceive(Context context, Intent intent)
         {
-            string message = intent.Action + ": " + intent.GetStringExtra (AndroidNotificationManager.MessageKey);
+            string title = intent.GetStringExtra(AndroidNotificationManager.TitleKey);
+            string message = intent.Action + ": " + intent.GetStringExtra(AndroidNotificationManager.MessageKey);
             Toast.MakeText(context, message, ToastLength.Short).Show();
             System.Console.WriteLine(message);
+            (Xamarin.Forms.Application.Current as App).NavigationService.NavigateAsync("app:///NavigationPage/MainPage/NotificationPage");
+            AndroidNotificationManager customManager = AndroidNotificationManager.Instance ?? new AndroidNotificationManager();
+            customManager.ReceiveNotification(title, message);
 
             var extra = intent.Extras;
             if (extra != null && !extra.IsEmpty)
