@@ -94,18 +94,45 @@ namespace TestApp.Droid
 
         public void Show(string title, string message)
         {
-            Intent intent = new Intent(AndroidApp.Context, typeof(MainActivity));
-            intent.PutExtra(TitleKey, title);
-            intent.PutExtra(MessageKey, message);
+            var context = AndroidApp.Context;
+            // notification intent
+            Intent contentIntent = new Intent(context, typeof(MainActivity));
+            // Intent contentIntent = context.PackageManager.GetLaunchIntentForPackage(context.PackageName);
+            contentIntent.PutExtra(TitleKey, title);
+            contentIntent.PutExtra(MessageKey, message);
+            PendingIntent pendingIntent = PendingIntent.GetActivity(context, pendingIntentId++, contentIntent, PendingIntentFlags.CancelCurrent);
 
-            PendingIntent pendingIntent = PendingIntent.GetActivity(AndroidApp.Context, pendingIntentId++, intent, PendingIntentFlags.UpdateCurrent);
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(AndroidApp.Context, channelId)
+            // intent for action
+            Intent leftIntent = new Intent();
+            leftIntent.PutExtra(TitleKey, title);
+            leftIntent.PutExtra(MessageKey, message);
+            leftIntent.SetAction("LEFT");
+            PendingIntent pendingLeftIntent = PendingIntent.GetBroadcast(context, 0, leftIntent, PendingIntentFlags.CancelCurrent);
+
+            Intent rightIntent = new Intent();
+            rightIntent.PutExtra(TitleKey, title);
+            rightIntent.PutExtra(MessageKey, message);
+            rightIntent.SetAction("RIGHT");
+            PendingIntent pendingRightIntent = PendingIntent.GetBroadcast(context, 0, rightIntent, PendingIntentFlags.CancelCurrent);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
                 .SetContentIntent(pendingIntent)
                 .SetContentTitle(title)
                 .SetContentText(message)
-                .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.icon))
-                .SetSmallIcon(Resource.Drawable.icon)
+                .SetAutoCancel(true)
+                .AddAction(0, "LEFT", pendingLeftIntent)
+                .AddAction(0, "RIGHT", pendingRightIntent)
+                .SetLargeIcon(BitmapFactory.DecodeResource(context.Resources, Resource.Mipmap.launcher_logo))
+                .SetSmallIcon(Resource.Mipmap.launcher_logo)
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
+
+            // action filter
+            var intentFilter = new IntentFilter();
+            intentFilter.AddAction("LEFT");
+            intentFilter.AddAction("RIGHT");
+            var customReceiver = new CustomActionReceiver();
+            context.RegisterReceiver(customReceiver, intentFilter);
+
             Notification notification = builder.Build();
             manager.Notify(messageId++, notification);
         }

@@ -1,5 +1,6 @@
 using Prism;
 using Prism.Ioc;
+using Prism.Navigation;
 using TestApp.ViewModels;
 using TestApp.Views;
 using Xamarin.Essentials.Implementation;
@@ -10,6 +11,7 @@ namespace TestApp
 {
     public partial class App
     {
+        public new INavigationService NavigationService => base.NavigationService;
         public static string FilePath;
 
         public App(IPlatformInitializer initializer, string filePath)

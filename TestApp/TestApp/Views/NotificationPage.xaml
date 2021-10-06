@@ -22,5 +22,6 @@
                                      Time="{Binding SelectedTime}" />
         <Button Text="Send timed notification" Command="{Binding ScheduledCommand}" />
         <Label Text="{Binding PageMessage}" />
+        <Label Text="{Binding ActionMessage, StringFormat='The action selected: {0}'}" />
     </StackLayout>
 </ContentPage>

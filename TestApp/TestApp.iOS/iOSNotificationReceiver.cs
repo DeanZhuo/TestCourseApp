@@ -17,7 +17,8 @@ namespace TestApp.iOS
         {
             string title = notification.Request.Content.Title;
             string message = notification.Request.Content.Body;
-
+            //not tested
+            (Xamarin.Forms.Application.Current as App).NavigationService.NavigateAsync("app:///NavigationPage/MainPage/NotificationPage");
             DependencyService.Get<INotificationManager>().ReceiveNotification(title, message);
         }
     }

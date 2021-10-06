@@ -5,6 +5,7 @@ using Android.OS;
 using Plugin.CurrentActivity;
 using Prism;
 using Prism.Ioc;
+using System;
 using TestApp.HelperNotification;
 using Xamarin.Forms;
 
@@ -32,20 +33,34 @@ namespace TestApp.Droid
             string completePath = System.IO.Path.Combine(folderPath, fileName);
 
             LoadApplication(new App(new AndroidInitializer(), completePath));
-            CreateNotificationFromIntent(Intent);
         }
 
         protected override void OnNewIntent(Intent intent)
         {
-            CreateNotificationFromIntent(intent);
+            CreateFromIntent(intent);
         }
 
-        private void CreateNotificationFromIntent(Intent intent)
+        private void CreateFromIntent(Intent intent)
         {
+            switch (intent.Action)
+            {
+                case "LEFT":
+                    Console.WriteLine("hit left");
+                    break;
+                case "RIGHT":
+                    Console.WriteLine("hit right");
+                    break;
+                default:
+                    Console.WriteLine("didn't hit any");
+                    break;
+            }
+
             if (intent?.Extras != null)
             {
+                // string action = intent.Action;
                 string title = intent.GetStringExtra(AndroidNotificationManager.TitleKey);
                 string message = intent.GetStringExtra(AndroidNotificationManager.MessageKey);
+                (Xamarin.Forms.Application.Current as App).NavigationService.NavigateAsync("app:///NavigationPage/MainPage/NotificationPage");
                 DependencyService.Get<INotificationManager>().ReceiveNotification(title, message);
             }
         }
