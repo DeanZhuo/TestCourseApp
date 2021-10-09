@@ -134,7 +134,7 @@ namespace TestApp.Droid
                 .AddAction(0, "LEFT", pendingLeftIntent)
                 .AddAction(0, "RIGHT", pendingRightIntent)
                 .SetLargeIcon(BitmapFactory.DecodeResource(context.Resources, Resource.Mipmap.launcher_logo))
-                .SetSmallIcon(Resource.Mipmap.launcher_logo)
+                .SetSmallIcon(Resource.Mipmap.transLogo)
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
 
             // action filter
