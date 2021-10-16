@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_blue_grey_950"
+    android:padding="@dimen/design_navigation_item_icon_padding">
+
+    <TextClock
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/compat_notification_large_icon_max_height"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="@dimen/abc_action_bar_default_height_material"
+        android:format24Hour="yyyy-MM-dd HH:mm"
+        android:textColor="@android:color/holo_green_dark"
+        android:id="@+id/ClockText" />
+
+    <TextView
+        android:id="@+id/NotificationText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Some text just to set the view here"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/abc_action_bar_icon_vertical_padding_material"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/abc_action_button_min_height_material"
+        android:layout_marginTop="@dimen/abc_action_bar_default_height_material"
+        android:columnCount="3">
+
+        <Button
+            android:layout_column="0"
+            android:layout_width="@dimen/design_bottom_navigation_active_item_max_width"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:text="Left Button"
+            android:id="@+id/btnLeft"
+            android:background="@drawable/buttonborder"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:layout_column="2"
+            android:layout_width="@dimen/design_bottom_navigation_active_item_max_width"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:text="Right Button"
+            android:id="@+id/btnRight"
+            android:background="@drawable/buttonborder"
+            android:textColor="@android:color/white"/>
+    </GridLayout>
+</LinearLayout>

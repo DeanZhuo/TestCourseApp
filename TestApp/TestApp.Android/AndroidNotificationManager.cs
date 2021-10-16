@@ -131,6 +131,7 @@ namespace TestApp.Droid
                 .SetContentTitle(title)
                 .SetContentText(message)
                 .SetAutoCancel(true)
+                .SetPriority(NotificationCompat.PriorityHigh)
                 .AddAction(0, "LEFT", pendingLeftIntent)
                 .AddAction(0, "RIGHT", pendingRightIntent)
                 .SetLargeIcon(BitmapFactory.DecodeResource(context.Resources, Resource.Mipmap.launcher_logo))
