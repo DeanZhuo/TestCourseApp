@@ -11,12 +11,21 @@ using System.Text;
 
 namespace TestApp.Droid
 {
-    [Activity(Label = "@string/", Theme = "@style/MainTheme", LaunchMode = Android.Content.PM.LaunchMode.SingleTask)]
-    public class AlarmNotificationActivity : Activity
+    [Activity(Label = "Alarm", Theme = "@style/MainTheme")]
+    public class AlarmNotificationActivity : Activity, View.IOnClickListener
     {
+        public void OnClick(View v)
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            /*
+             * the activity for the supposed to be fullscreen intent. the button crashes when the app doesnt run. currently inactive
+             */
 
             SetContentView(Resource.Layout.AlarmNotification);
 
@@ -33,19 +42,23 @@ namespace TestApp.Droid
             {
                 Toast.MakeText(Android.App.Application.Context, action + ": " + message, ToastLength.Short).Show();
                 System.Console.WriteLine(action + ": " + message);
-                (Xamarin.Forms.Application.Current as App).NavigationService.NavigateAsync("app:///NavigationPage/MainPage/NotificationPage");
                 AndroidNotificationManager customManager = AndroidNotificationManager.Instance ?? new AndroidNotificationManager();
                 customManager.ReceiveNotification(title, action + ": " + message);
             };
+
             Button rightButton = FindViewById<Button>(Resource.Id.btnRight);
             rightButton.Click += (object sender, EventArgs args) =>
             {
                 Toast.MakeText(Android.App.Application.Context, action + ": " + message, ToastLength.Short).Show();
                 System.Console.WriteLine(action + ": " + message);
-                (Xamarin.Forms.Application.Current as App).NavigationService.NavigateAsync("app:///NavigationPage/MainPage/NotificationPage");
                 AndroidNotificationManager customManager = AndroidNotificationManager.Instance ?? new AndroidNotificationManager();
                 customManager.ReceiveNotification(title, action + ": " + message);
             };
+        }
+
+        public override void OnAttachedToWindow()
+        {
+            Window.AddFlags(WindowManagerFlags.ShowWhenLocked | WindowManagerFlags.KeepScreenOn | WindowManagerFlags.DismissKeyguard | WindowManagerFlags.TurnScreenOn);
         }
     }
 }

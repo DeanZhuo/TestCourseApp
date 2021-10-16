@@ -21,22 +21,9 @@ namespace TestApp.Droid
             {
                 string title = intent.GetStringExtra(AndroidNotificationManager.TitleKey);
                 string message = intent.GetStringExtra(AndroidNotificationManager.MessageKey);
-                /*
+                
                 AndroidNotificationManager manager = AndroidNotificationManager.Instance ?? new AndroidNotificationManager();
                 manager.Show(title, message);
-                */
-
-                //this point is to be written. instead of showing the notification normally, use th efull screen notification, in the alarm activity 
-
-                var NewIntent = new Intent(context, typeof(AlarmNotificationActivity));
-                Bundle bundle = new Bundle();
-                bundle.PutString(AndroidNotificationManager.TitleKey, title);
-                bundle.PutString(AndroidNotificationManager.MessageKey, message);
-                NewIntent.PutExtras(bundle);
-                NewIntent.SetFlags(ActivityFlags.FromBackground);
-                NewIntent.SetFlags(ActivityFlags.NewTask);
-                NewIntent.AddCategory(Intent.CategoryLauncher);
-                context.StartActivity(NewIntent);
             }
         }
     }

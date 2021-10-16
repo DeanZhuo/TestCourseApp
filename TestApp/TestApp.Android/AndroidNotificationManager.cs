@@ -113,6 +113,14 @@ namespace TestApp.Droid
             contentIntent.PutExtra(MessageKey, message);
             PendingIntent pendingIntent = PendingIntent.GetActivity(context, pendingIntentId++, contentIntent, PendingIntentFlags.CancelCurrent);
 
+            /*
+             * this part is for the alarm activity. currently doest work as button click on activity will crashese when the app isnt in background or foreground
+            Intent fullIntent = new Intent(context, typeof(AlarmNotificationActivity));
+            fullIntent.PutExtra(TitleKey, title);
+            fullIntent.PutExtra(MessageKey, message);
+            PendingIntent fullPendingIntent = PendingIntent.GetActivity(context, pendingIntentId++, fullIntent, PendingIntentFlags.CancelCurrent);
+            */
+
             // intent for action
             Intent leftIntent = new Intent();
             leftIntent.PutExtra(TitleKey, title);
@@ -127,6 +135,7 @@ namespace TestApp.Droid
             PendingIntent pendingRightIntent = PendingIntent.GetBroadcast(context, 0, rightIntent, PendingIntentFlags.CancelCurrent);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
+                //.SetContentIntent(fullPendingIntent)
                 .SetContentIntent(pendingIntent)
                 .SetContentTitle(title)
                 .SetContentText(message)
@@ -136,6 +145,7 @@ namespace TestApp.Droid
                 .AddAction(0, "RIGHT", pendingRightIntent)
                 .SetLargeIcon(BitmapFactory.DecodeResource(context.Resources, Resource.Mipmap.launcher_logo))
                 .SetSmallIcon(Resource.Mipmap.transLogo)
+                .SetVibrate(new long[0])
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
 
             // action filter
