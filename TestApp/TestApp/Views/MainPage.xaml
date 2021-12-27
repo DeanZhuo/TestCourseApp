@@ -3,16 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:helper="clr-namespace:TestApp.HelperLanguage"
              x:Class="TestApp.Views.MainPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="{DynamicResource BackgroundColor}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20" Padding="5">
-        <Label Text="{helper:Translate Welcome}" />
-        <Button Text="Keypad" Command="{Binding KeypadPageCommand}" />
-        <Button Text="Scanner" Command="{Binding ScannerPageCommand}" />
-        <Button Text="Media Picker" Command="{Binding MediaPageCommand}" />
-        <Button Text="ListView" Command="{Binding ListViewPageCommand}" />
-        <Button Text="Contact" Command="{Binding ContactPageCommand}" />
-        <Button Text="Localization" Command="{Binding LocalizationPageCommand}" />
-        <Button Text="Notification" Command="{Binding NotifPageCommand}" />
+        <Label Text="{helper:Translate Welcome}" TextColor="{DynamicResource TextPrimaryColor}" />
+        <Button Text="Keypad" Command="{Binding KeypadPageCommand}" TextColor="{DynamicResource TextSecondaryColor}" BackgroundColor="{DynamicResource FrameColor}" />
+        <Button Text="Scanner" Command="{Binding ScannerPageCommand}" TextColor="{DynamicResource TextSecondaryColor}" BackgroundColor="{DynamicResource FrameColor}" />
+        <Button Text="Media Picker" Command="{Binding MediaPageCommand}" TextColor="{DynamicResource TextSecondaryColor}" BackgroundColor="{DynamicResource FrameColor}" />
+        <Button Text="ListView" Command="{Binding ListViewPageCommand}" TextColor="{DynamicResource TextSecondaryColor}" BackgroundColor="{DynamicResource FrameColor}" />
+        <Button Text="Contact" Command="{Binding ContactPageCommand}" TextColor="{DynamicResource TextSecondaryColor}" BackgroundColor="{DynamicResource FrameColor}" />
+        <Button Text="Localization" Command="{Binding LocalizationPageCommand}" TextColor="{DynamicResource TextSecondaryColor}" BackgroundColor="{DynamicResource FrameColor}" />
+        <Button Text="Notification" Command="{Binding NotifPageCommand}" TextColor="{DynamicResource TextSecondaryColor}" BackgroundColor="{DynamicResource FrameColor}" />
+        <Label Text="Dark Mode" TextColor="{DynamicResource TextPrimaryColor}" />
+        <Switch x:Name="ModeSwitch" IsToggled="False" Toggled="ModeSwitch_Toggled" />
     </StackLayout>
 </ContentPage>

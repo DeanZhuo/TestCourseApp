@@ -28,6 +28,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ReString.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="HelperTheme\DarkMode.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="HelperTheme\LightMode.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ContactPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

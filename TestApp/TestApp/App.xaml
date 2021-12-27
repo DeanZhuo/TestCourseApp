@@ -6,6 +6,7 @@
                         x:Class="TestApp.App">
     <Application.Resources>
         <!-- Application resource dictionary -->
+        <ResourceDictionary Source="HelperTheme/LightMode.xaml" />
         <ResourceDictionary>
             <Style TargetType="Picker" ApplyToDerivedTypes="True">
                 <Style.Setters>

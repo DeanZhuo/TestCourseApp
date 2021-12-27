@@ -42,5 +42,14 @@ namespace TestApp
             containerRegistry.RegisterForNavigation<LocalizationPage, LocalizationPageViewModel>();
             containerRegistry.RegisterForNavigation<NotificationPage, NotificationPageViewModel>();
         }
+
+        // theme
+        public static Theme AppTheme { get; set; }
+
+        public enum Theme
+        {
+            Light,
+            Dark
+        }
     }
 }

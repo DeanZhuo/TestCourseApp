@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.Content;
-using Android.OS;
 using Android.Widget;
 
 namespace TestApp.Droid
@@ -21,7 +20,7 @@ namespace TestApp.Droid
             {
                 string title = intent.GetStringExtra(AndroidNotificationManager.TitleKey);
                 string message = intent.GetStringExtra(AndroidNotificationManager.MessageKey);
-                
+
                 AndroidNotificationManager manager = AndroidNotificationManager.Instance ?? new AndroidNotificationManager();
                 manager.Show(title, message);
             }
